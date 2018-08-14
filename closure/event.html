@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="testbutton" style="width: 100px;height: 100px;background: red;"></div>
+    <script>
+        // 值传递 闭包 事件监听中的回调函数存在闭包
+        var temp = {a:1}
+        var b = {a:2}
+        changeTemp(temp)
+        function changeTemp(temp){
+            var a = 123;
+            document.getElementById("testbutton").addEventListener("click",function(){
+                console.log("click------------------------------testbutton")
+                console.log(temp)
+                console.log(a)
+            });
+        }
+        temp.a = 5;
+        temp = b;
+        console.log(temp);
+    </script>
+</body>
+</html>
